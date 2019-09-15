@@ -1,0 +1,26 @@
+spring:
+  datasource:
+     name: zymall
+     url: jdbc:mysql://rm-wz9ngn9g3bmdy26yico.mysql.rds.aliyuncs.com/zy_mall?useUnicode=true&characterEncoding=utf-8
+     username: houzeyu
+     password: hzy947126!@#
+  rabbitmq:
+    host: 47.102.46.47
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /zymall
+    template:
+      exchange: zymall.goods.exchange
+    publisher-confirms: true
+  redis:
+    host: 119.3.231.222
+    port: 56379
+    password: hzy947126117
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    timeout: 2000ms

@@ -8,7 +8,10 @@
   <artifactId>cloudmall</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>cloudmall</name>
-
+   <modules>
+     <module>cloudmall-register</module>
+     <module>cloudmall-goods</module>
+   </modules>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -17,36 +20,34 @@
   </parent>
 
   <properties>
-    <mybatis.starter.version>1.3.2</mybatis.starter.version>
-    <mapper.starter.version>2.0.2</mapper.starter.version>
     <pageHelper.starter.version>1.2.3</pageHelper.starter.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
     <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
-    <mybatis.boot.version>1.2.0</mybatis.boot.version>
+    <mybatis.boot.version>2.0.0</mybatis.boot.version>
     <spring.session.version>1.3.1.RELEASE</spring.session.version>
-    <mysql-connector.version>5.1.30</mysql-connector.version>
+    <mysql-connector.version>5.1.34</mysql-connector.version>
     <mybatis.generator.version>1.3.2</mybatis.generator.version>
     <commons.lang3.version>3.4</commons.lang3.version>
     <commons.fileupload.version>1.3.1</commons.fileupload.version>
-    <fastjson.version>1.2.12</fastjson.version>
-    <druid.version>1.0.18</druid.version>
+    <fastjson.version>1.2.58</fastjson.version>
+    <druid.version>1.1.10</druid.version>
     <logback.version>1.1.6</logback.version>
     <logback.access.version>1.1.2</logback.access.version>
     <commons.logging.version>1.2</commons.logging.version>
     <commons.codec.version>1.10</commons.codec.version>
-    <jedis.version>2.9.0</jedis.version>
+    <jedis.version>2.9.3</jedis.version>
     <lombok.version>1.16.6</lombok.version>
     <httpclient.version>4.5</httpclient.version>
-    <curator.version>2.10.0</curator.version>
+    <curator.version>4.0.1</curator.version>
     <swagger.version>2.6.1</swagger.version>
     <sharding-jdbc.version>2.0.0</sharding-jdbc.version>
     <elastic-job.version>2.1.5</elastic-job.version>
-    <elasticsearch.version>6.2.2</elasticsearch.version>
-    <elasticsearch.rest.version>5.3.3</elasticsearch.rest.version>
-    <boot.starter.version>2.0.1.RELEASE</boot.starter.version>
+    <elasticsearch.version>6.5.4</elasticsearch.version>
+    <elasticsearch.rest.version>6.3.1</elasticsearch.rest.version>
+    <boot.starter.version>2.1.5.RELEASE</boot.starter.version>
     <boot.redis.version>1.4.7.RELEASE</boot.redis.version>
     <javax-mail.version>1.4.7</javax-mail.version>
     <bitwalker.version>1.19</bitwalker.version>
@@ -54,6 +55,19 @@
 
   <dependencyManagement>
     <dependencies>
+      <!--mybatis-plus-generator依赖-->
+      <dependency>
+        <groupId>org.freemarker</groupId>
+        <artifactId>freemarker</artifactId>
+        <version>2.3.29</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>3.1.2</version>
+      </dependency>
+
+      <!--shiro依赖-->
       <dependency>
         <groupId>org.apache.shiro</groupId>
         <artifactId>shiro-spring-boot-web-starter</artifactId>
@@ -64,17 +78,11 @@
         <artifactId>aliyun-java-sdk-core</artifactId>
         <version>4.0.3</version>
       </dependency>
-      <!-- mybatis启动器 -->
+      <!--mybatis-plus依赖-->
       <dependency>
-        <groupId>org.mybatis.spring.boot</groupId>
-        <artifactId>mybatis-spring-boot-starter</artifactId>
-        <version>${mybatis.starter.version}</version>
-      </dependency>
-      <!-- 通用Mapper启动器 -->
-      <dependency>
-        <groupId>tk.mybatis</groupId>
-        <artifactId>mapper-spring-boot-starter</artifactId>
-        <version>${mapper.starter.version}</version>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>3.1.2</version>
       </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -107,8 +115,6 @@
         <artifactId>fastdfs-client</artifactId>
         <version>${fastDFS.client.version}</version>
       </dependency>
-
-
       <dependency>
         <groupId>nekohtml</groupId>
         <artifactId>nekohtml</artifactId>
