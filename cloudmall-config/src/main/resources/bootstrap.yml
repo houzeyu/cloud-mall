@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: cloudmall-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/HouZeYu/cloudmall-config.git
+          username: 1067325672@qq.com
+          password: 947126117.
+          search-paths: /** #sms-service-config,user-service-config,search-service-config,upload-service-config,page-service-config,common-service-config,gatway-service-config,monitors-service-config
+    bus:
+      trace:
+        enabled: true
+      enabled: true
+  rabbitmq:
+    host: 47.102.46.47
+    port: 5672
+    username: cloud
+    password: cloud
+    virtual-host: cloudmall
+eureka:
+  client:
+    service-url:
+      defaultZone: http://106.12.187.202:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+server:
+  port: 10010
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health",'prometheus','bus-refresh']

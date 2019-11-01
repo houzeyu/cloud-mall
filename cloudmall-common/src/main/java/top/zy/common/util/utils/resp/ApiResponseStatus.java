@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 public enum  ApiResponseStatus {
     SUCCESS(200,"成功"),
     BAD_ARGUMENT(401,"参数不正确"),
+    INTERNAL_ERROR(503,"系统异常稍后再试"),
+    BAD_GATEWAY(502,"服务器无响应"),
     UN_LOGIN(501,"请登录"),
     UN_AUTH(506,"无权限操作"),
     UPDATE_FAIL(507,"更新失败"),

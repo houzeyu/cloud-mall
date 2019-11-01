@@ -1,0 +1,12 @@
+spring:
+  application:
+    name:  product-service
+  cloud:
+    config:
+      uri: http://106.12.187.202:10010/
+      profile: dev
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+

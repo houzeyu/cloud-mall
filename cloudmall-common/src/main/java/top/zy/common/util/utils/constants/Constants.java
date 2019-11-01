@@ -6,6 +6,7 @@ package top.zy.common.util.utils.constants;
  * @Date: Created in 21:45 2018/5/13
  */
 public class Constants {
+
     /**  自定义状态码 **/
     public static final int RESP_STATUS_OK = 200;
 

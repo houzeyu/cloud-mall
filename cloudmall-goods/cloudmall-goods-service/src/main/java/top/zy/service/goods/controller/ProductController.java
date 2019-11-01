@@ -16,7 +16,6 @@ import top.zy.service.goods.service.ProductService;
 import java.util.List;
 
 @RestController
-@RequestMapping("product")
 public class ProductController {
     @Autowired
     @Qualifier("productServiceImpl")

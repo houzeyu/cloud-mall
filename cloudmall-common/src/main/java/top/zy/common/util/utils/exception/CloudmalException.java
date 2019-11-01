@@ -8,8 +8,6 @@ package top.zy.common.util.utils.exception;
 public class CloudmalException extends RuntimeException {
     private int statusCode;
 
-    private ExceptionEnum exceptionEnum;
-
     public CloudmalException(String message, int statusCode) {
         super(message);
         this.statusCode = statusCode;
@@ -19,8 +17,9 @@ public class CloudmalException extends RuntimeException {
         super(message);
     }
 
-    public CloudmalException(ExceptionEnum invalidUserDataType) {
-      this.exceptionEnum=invalidUserDataType;
+    public CloudmalException(ExceptionEnum exceptionEnum) {
+        super(exceptionEnum.getMessage());
+        this.statusCode=exceptionEnum.getCode();
     }
 
     public int getStatusCode() {

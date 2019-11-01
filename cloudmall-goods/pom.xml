@@ -12,6 +12,7 @@
      <name>cloudmall-goods</name>
     <modules>
         <module>cloudmall-goods-api</module>
+        <module>cloudmall-goods-service</module>
     </modules>
     <packaging>pom</packaging>
      <description>cloudmall商品中心</description>

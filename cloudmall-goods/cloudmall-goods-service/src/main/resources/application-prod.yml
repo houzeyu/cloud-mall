@@ -1,0 +1,68 @@
+spring:
+  application:
+    name:  product-service
+#  profiles:
+#    active: dev
+  datasource:
+         type: com.alibaba.druid.pool.DruidDataSource
+         driver-class-name: com.mysql.jdbc.Driver
+         url: jdbc:mysql://rm-wz9ngn9g3bmdy26yico.mysql.rds.aliyuncs.com/zy_mall?useUnicode=true&characterEncoding=utf-8
+         username: houzeyu
+         password: hzy947126!@#
+         filters: stat
+         maxActive: 20
+         initialSize: 1
+         maxWait: 60000
+         minIdle: 1
+         timeBetweenEvictionRunsMillis: 60000
+         minEvictableIdleTimeMillis: 300000
+         validationQuery: select 'x'
+         testWhileIdle: true
+         testOnBorrow: false
+         testOnReturn: false
+         poolPreparedSratements: true
+         maxOpenPreparedStatements: 20
+  rabbitmq:
+    host: 47.102.46.47
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /zymall
+    template:
+      exchange: zymall.goods.exchange
+    publisher-confirms: true
+  redis:
+    host: 119.3.231.222
+    port: 56379
+    password: hzy947126117
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    timeout: 2000ms
+  cloud:
+    config:
+      uri: http://localhost:10010/
+      profile: dev
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+server:
+  port: 8000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+pagehelper:
+  helper-dialect: mysql
+
+logging:
+    config: classpath:logback.xml

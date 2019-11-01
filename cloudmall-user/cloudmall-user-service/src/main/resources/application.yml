@@ -1,0 +1,32 @@
+server:
+  port:  9001
+spring:
+  application:
+    name:  user-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+logging:
+    config: classpath:logback.xml
+ribbon:
+  ConnectTimeout: 25000 # 连接超时时间(ms)
+  ReadTimeout: 20000 # 通信超时时间(ms)
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 5 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 5 # 同一实例的重试次数
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 20000 # 熔断超时时长：10000ms
+feign:
+  hystrix:
+    enabled: true   #打开Feign自带的断路器

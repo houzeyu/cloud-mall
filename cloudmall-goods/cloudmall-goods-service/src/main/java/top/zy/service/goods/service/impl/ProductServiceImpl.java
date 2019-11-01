@@ -33,7 +33,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> selectProductPage(BasePageReq basePageReq) {
-        PageHelper.startPage(basePageReq.getPageNumber(),basePageReq.getPageSize());
+        if (basePageReq!=null){
+            PageHelper.startPage(basePageReq.getPageNumber(),basePageReq.getPageSize());
+        }
         List<Product> products = productMapper.selectList(null);
         return products;
     }

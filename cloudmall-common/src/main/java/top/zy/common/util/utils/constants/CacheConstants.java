@@ -1,5 +1,7 @@
 package top.zy.common.util.utils.constants;
 
+
+
 public class CacheConstants {
     public static final String CACHE_GOODS_CATEGORY = "goods:category";
     public static final String CACHE_GOODS_CATEGORY_BRANDID = "goods:category:bandid";

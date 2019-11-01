@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.zy.gateway.config.dynamic.GatewayApiMapper">
+    <sql id="ApiGatewayColumn">
+      id,path,service_id,url,retryable,enabled,strip_prefix,api_name,gateway_group_id
+    </sql>
+
+    <select id="selectApiList" resultType="top.zy.gateway.config.dynamic.ZuulRouteVO">
+      SELECT
+      <include refid="ApiGatewayColumn"/>
+      FROM gateway_api_define
+      WHERE gateway_group_id = (SELECT gateway_group_id FROM gateway_group WHERE gateway_group_name = #{gatewayGroupName})
+       AND is_delete = 0 AND enabled = 1
+    </select>
+</mapper>
