@@ -5,13 +5,13 @@ spring:
     name:  cloudmall-search
   data:
     elasticsearch:
-      cluster-nodes: 119.3.209.49:9300,119.3.231.222:9300,139.159.192.84:9300
+      cluster-nodes: 119.3.209.49:9300,139.9.168.54:9300,139.159.192.84:9300
       cluster-name:  ESCluster
       repositories:
          enabled: true
   elasticsearch:
     rest:
-      uris: ["http://119.3.231.222:9200","http://119.3.209.49:9200","http://139.159.192.84:9200"]
+      uris: ["http://139.9.168.54:9200","http://119.3.209.49:9200","http://139.159.192.84:9200"]
   rabbitmq:
     host: 47.102.46.47
     port: 5672

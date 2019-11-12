@@ -14,8 +14,12 @@ import org.springframework.retry.annotation.Retryable;
 @EnableCircuitBreaker
 public class CloudmallGatewayApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(CloudmallGatewayApplication.class, args);
     }
+
+
+
 
 }

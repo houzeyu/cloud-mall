@@ -15,11 +15,4 @@ public interface GatewayRefreshApi {
      */
     @GetMapping("/gateway/refreshApiRoute")
     String refresh() ;
-    /**
-     *@Author gnn [www.coder520.com]
-     *@Date 2019/10/4 13:34
-     *@Descrintion  查看映射关系
-     */
-    @RequestMapping("/gateway//watchApiRoute")
-    Object watchNowRoute();
 }

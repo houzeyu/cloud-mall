@@ -9,6 +9,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>cloudmall</name>
    <modules>
+     <module>cloudmall-common</module>
      <module>cloudmall-register</module>
      <module>cloudmall-goods</module>
      <module>cloudmall-search</module>

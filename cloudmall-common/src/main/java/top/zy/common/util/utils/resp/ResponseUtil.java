@@ -38,4 +38,8 @@ public class ResponseUtil {
         ApiResponse apiResponse=new ApiResponse(ApiResponseStatus.BAD_ARGUMENT);
         return apiResponse;
     }
+    public static ApiResponse gwRoutesRefreshOk(){
+        ApiResponse apiResponse=new ApiResponse(ApiResponseStatus.GW_ROUTES_REFRESH_SUCESS);
+        return apiResponse;
+    }
 }

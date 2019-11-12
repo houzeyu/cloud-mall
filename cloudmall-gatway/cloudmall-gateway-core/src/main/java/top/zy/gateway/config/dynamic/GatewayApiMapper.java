@@ -8,5 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface GatewayApiMapper extends BaseMapper<ZuulRouteVO> {
-  List<ZuulRouteVO> selectApiList(@Param("gatewayGroupName") String gatewayGroupName);
+  List<ZuulRouteVO> selectApiList(@Param("gatewayApiGroupList") List<ZuulApiGroupDto>  gatewayApiGroupList);
+
+  List<ZuulApiGroupDto> selectApiGroupList(@Param("gatewayGroupName") String gatewayGroup);
 }

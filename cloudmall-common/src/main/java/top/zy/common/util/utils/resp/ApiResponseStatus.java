@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum  ApiResponseStatus {
+    GW_ROUTES_REFRESH_SUCESS(200,"网关刷新成功"),
     SUCCESS(200,"成功"),
     BAD_ARGUMENT(401,"参数不正确"),
     INTERNAL_ERROR(503,"系统异常稍后再试"),

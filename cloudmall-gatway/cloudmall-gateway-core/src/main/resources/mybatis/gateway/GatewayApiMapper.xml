@@ -2,14 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.zy.gateway.config.dynamic.GatewayApiMapper">
     <sql id="ApiGatewayColumn">
-      id,path,service_id,url,retryable,enabled,strip_prefix,api_name,gateway_group_id
+      id,path,service_id,url,retryable,enabled,strip_prefix,api_name,gateway_api_group_id,sensitive_headers,custom_sensitive_headers
     </sql>
 
     <select id="selectApiList" resultType="top.zy.gateway.config.dynamic.ZuulRouteVO">
       SELECT
       <include refid="ApiGatewayColumn"/>
       FROM gateway_api_define
-      WHERE gateway_group_id = (SELECT gateway_group_id FROM gateway_group WHERE gateway_group_name = #{gatewayGroupName})
+      WHERE gateway_api_group_id in
+        <foreach collection="gatewayApiGroupList" item="item" open="(" separator="," close=")" index="index">
+            #{item.gatewayApiGroupId}
+        </foreach>
        AND is_delete = 0 AND enabled = 1
+    </select>
+    <select id="selectApiGroupList" resultType="top.zy.gateway.config.dynamic.ZuulApiGroupDto">
+        SELECT DISTINCT gap.gateway_api_group_id,gap.gateway_api_group_path
+        FROM  gateway_api_group gap
+         LEFT JOIN gateway_group_api_join ggaj ON ggaj.gateway_group_id =
+         (SELECT gateway_group_id
+         FROM gateway_group
+         WHERE gateway_group_name = #{gatewayGroupName} AND is_delete = 0 AND enabled = 1 )
+         where gap.is_delete = 0 AND gap.enabled = 1
     </select>
 </mapper>
