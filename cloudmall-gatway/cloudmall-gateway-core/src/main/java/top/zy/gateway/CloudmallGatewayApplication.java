@@ -19,7 +19,4 @@ public class CloudmallGatewayApplication {
         SpringApplication.run(CloudmallGatewayApplication.class, args);
     }
 
-
-
-
 }
