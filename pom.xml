@@ -55,7 +55,7 @@
     <elastic-job.version>2.1.5</elastic-job.version>
     <elasticsearch.version>6.2.2</elasticsearch.version>
     <elasticsearch.rest.version>5.3.3</elasticsearch.rest.version>
-    <boot.starter.version>2.1.3.RELEASE</boot.starter.version>
+    <boot.starter.version>2.5.12</boot.starter.version>
     <boot.redis.version>1.4.7.RELEASE</boot.redis.version>
     <javax-mail.version>1.4.7</javax-mail.version>
     <bitwalker.version>1.19</bitwalker.version>
